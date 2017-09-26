@@ -1,11 +1,28 @@
 {
+  "name": "ionic-version",
+  "version": "0.0.0",
+  "description": "Version your Ionic app in a `npm version` fashion.",
+  "repository": "https://github.com/stovmascript/ionic-version.git",
+  "author": "Martin Stovicek <martin.stovicek+oss@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "bin": {
+    "ionic-version": "lib/cli.js"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0"
+  },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.0"
   },
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build": "babel src -d lib"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
