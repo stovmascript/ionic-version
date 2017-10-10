@@ -18,11 +18,12 @@
     "babel-preset-env": "^1.6.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
-    "prettier": "^1.7.0"
+    "prettier": "^1.7.0",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
     "precommit": "lint-staged",
-    "build": "babel src -d lib"
+    "build": "rimraf lib && babel src -d lib"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
