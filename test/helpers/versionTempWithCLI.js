@@ -10,7 +10,7 @@ function versionTempWithCLI(params) {
 		[require.resolve("../../lib/cli")].concat(params).filter(Boolean),
 		{
 			env: Object.assign({}, process.env, {
-				RNV_ENV: "ava"
+				IV_ENV: "ava"
 			})
 		}
 	);

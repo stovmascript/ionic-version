@@ -10,17 +10,12 @@ function log(msg, silent) {
 }
 
 export function version(program, projectPath) {
-	const prog = Object.assign({}, program || {});
+	const programOpts = Object.assign({}, program || {});
 
 	const projPath = path.resolve(
 		process.cwd(),
-		projectPath || prog.args[0] || ""
+		projectPath || programOpts.args[0] || ""
 	);
-
-	const programOpts = Object.assign({}, prog, {
-		// android: path.join(projPath, prog.android),
-		// ios: path.join(projPath, prog.ios)
-	});
 
 	const appPkgJSONPath = path.join(projPath, "package.json");
 	const MISSING_IONIC_DEP = "MISSING_IONIC_DEP";
@@ -36,7 +31,7 @@ export function version(program, projectPath) {
 		if (err.message === MISSING_IONIC_DEP) {
 			log({
 				style: "red",
-				text: `Is this the right folder? Ionic (@ionic/app-scripts) isn't listed in devDependencies of ${appPkgJSONPath}`
+				text: `Is this the right folder? Ionic (@ionic/app-scripts) isn't listed in devDependencies of ${appPkgJSONPath}.`
 			});
 		} else {
 			log({
@@ -47,13 +42,13 @@ export function version(program, projectPath) {
 			log({
 				style: "red",
 				text:
-					"Is this the right folder? Looks like there isn't a package.json here"
+					"Is this the right folder? Looks like there isn't a package.json here."
 			});
 		}
 
 		log({
 			style: "yellow",
-			text: "Pass the project path as an argument, see --help for usage"
+			text: "Pass the project path as an argument, see --help for usage."
 		});
 
 		if (program.outputHelp) {
@@ -102,11 +97,11 @@ export function version(program, projectPath) {
 				}
 			}
 
-			log({ style: "green", text: "Done" }, programOpts.quiet);
+			log({ style: "green", text: "Done." }, programOpts.quiet);
 			return child.execSync("git log -1 --pretty=%H", gitCmdOpts).toString();
 		})
 		.catch(err => {
-			if (process.env.RNV_ENV === "ava") {
+			if (process.env.IV_ENV === "ava") {
 				console.error(err);
 			}
 
