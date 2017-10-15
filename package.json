@@ -1,13 +1,51 @@
 {
+  "name": "ionic-version",
+  "version": "0.0.0",
+  "description": "Version your Ionic app in a `npm version` fashion.",
+  "repository": "https://github.com/stovmascript/ionic-version.git",
+  "author": "Martin Stovicek <martin.stovicek+oss@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "bin": {
+    "ionic-version": "lib/cli.js"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "cordova-config": "^0.7.0",
+    "jsdoc-to-markdown": "^3.0.0"
+  },
   "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "fs-extra": "^4.0.2",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
-    "prettier": "^1.7.0"
+    "prettier": "^1.7.0",
+    "rimraf": "^2.6.2",
+    "temp": "^0.8.3"
   },
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build": "rimraf lib && babel src -d lib",
+    "test": "yarn build && ava",
+    "docs": "jsdoc2md -d 4 src/index.js"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
-  }
+  },
+  "keywords": [
+    "build",
+    "bump",
+    "CFBundleShortVersionString",
+    "gradle",
+    "info",
+    "ionic",
+    "npm-version",
+    "plist",
+    "semver",
+    "version",
+    "versionName"
+  ]
 }

@@ -1,0 +1,14 @@
+{
+  "amended": {
+    "head": ["config.xml", "package.json"],
+    "index": []
+  },
+  "notAmended": {
+    "head": ["package.json"],
+    "index": ["config.xml"]
+  },
+  "versioned": {
+    "head": ["package.json"],
+    "index": []
+  }
+}
