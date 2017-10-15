@@ -9,7 +9,7 @@ function log(msg, silent) {
 	}
 }
 
-export default function version(program, projectPath) {
+export function version(program, projectPath) {
 	const prog = Object.assign({}, program || {});
 
 	const projPath = path.resolve(
@@ -67,40 +67,56 @@ export default function version(program, projectPath) {
 
 	cordovaConfig.setVersion(appPkg.version);
 
-	cordovaConfig.write().then(() => {
-		const gitCmdOpts = {
-			cwd: projPath
-		};
+	return cordovaConfig
+		.write()
+		.then(() => {
+			const gitCmdOpts = {
+				cwd: projPath
+			};
 
-		if (
-			programOpts.amend ||
-			(process.env.npm_lifecycle_event &&
-				process.env.npm_lifecycle_event.indexOf("version") > -1 &&
-				!programOpts.neverAmend)
-		) {
-			log({ text: "Amending..." }, programOpts.quiet);
+			if (
+				programOpts.amend ||
+				(process.env.npm_lifecycle_event &&
+					process.env.npm_lifecycle_event.indexOf("version") > -1 &&
+					!programOpts.neverAmend)
+			) {
+				log({ text: "Amending..." }, programOpts.quiet);
 
-			switch (process.env.npm_lifecycle_event) {
-				case "version":
-					child.spawnSync("git", ["add", "."], gitCmdOpts);
-					break;
+				switch (process.env.npm_lifecycle_event) {
+					case "version":
+						child.spawnSync("git", ["add", "."], gitCmdOpts);
+						break;
 
-				case "postversion":
-				default:
-					child.execSync("git commit -a --amend --no-edit", gitCmdOpts);
+					case "postversion":
+					default:
+						child.execSync("git commit -a --amend --no-edit", gitCmdOpts);
 
-					if (!programOpts.skipTag) {
-						log({ text: "Adjusting Git tag..." }, programOpts.quiet);
+						if (!programOpts.skipTag) {
+							log({ text: "Adjusting Git tag..." }, programOpts.quiet);
 
-						child.execSync(
-							"git tag -f $(git tag --sort=v:refname | tail -1)",
-							gitCmdOpts
-						);
-					}
+							child.execSync(
+								"git tag -f $(git tag --sort=v:refname | tail -1)",
+								gitCmdOpts
+							);
+						}
+				}
 			}
-		}
 
-		log({ style: "green", text: "Done" }, programOpts.quiet);
-		return child.execSync("git log -1 --pretty=%H", gitCmdOpts).toString();
-	});
+			log({ style: "green", text: "Done" }, programOpts.quiet);
+			return child.execSync("git log -1 --pretty=%H", gitCmdOpts).toString();
+		})
+		.catch(err => {
+			if (process.env.RNV_ENV === "ava") {
+				console.error(err);
+			}
+
+			log({
+				style: "red",
+				text: "Done, with errors."
+			});
+
+			process.exit(1);
+		});
 }
+
+export default version;

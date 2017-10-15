@@ -15,16 +15,20 @@
     "cordova-config": "^0.7.0"
   },
   "devDependencies": {
+    "ava": "^0.22.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "fs-extra": "^4.0.2",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "temp": "^0.8.3"
   },
   "scripts": {
     "precommit": "lint-staged",
-    "build": "rimraf lib && babel src -d lib"
+    "build": "rimraf lib && babel src -d lib",
+    "test": "yarn build && ava"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
