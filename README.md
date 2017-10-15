@@ -2,21 +2,19 @@
 
 Seamlessly shadows the behaviour of [`npm version`](https://docs.npmjs.com/cli/version).
 
----
-
 ## npm-scripts hook (automatic method)
 
 ### Setup
 
 ```bash
-$ npm install ionic-version --save
+npm install ionic-version --save
 # or
-$ yarn add ionic-version
+yarn add ionic-version
 ```
 
 Hook into the "version" or "postversion" npm script in your app's package.json:
 
-```js
+```diff
 {
 	"name": "myApp",
 	"version": "0.0.1",
@@ -29,7 +27,7 @@ Hook into the "version" or "postversion" npm script in your app's package.json:
 		"lint": "ionic-app-scripts lint",
 		"ionic:build": "ionic-app-scripts build",
 		"ionic:serve": "ionic-app-scripts serve",
-		"postversion": "ionic-version"
++		"postversion": "ionic-version"
 	},
 	// ...
 }
@@ -39,16 +37,16 @@ Hook into the "version" or "postversion" npm script in your app's package.json:
 
 Before you publish a new build of your app, run `npm version <newversion>`.
 
-ionic-version will then update your `config.xml` and thus your `platforms/` code during build. Depending on the script and options you choose, it can also automatically amend the version bump commit and update the Git tag created by `npm version`. This method should be useful in most cases. If you need more control, take a look at the CLI and options below.
+ionic-version will then update your `config.xml` and therefore your `platforms/` code during build. Depending on the script and options you choose, it can also automatically amend the version bump commit and update the Git tag created by `npm version`. This method should be useful in most cases. If you need more control, take a look at the CLI and options below.
 
 ## CLI
 
 ### Setup
 
 ```bash
-$ npm install -g ionic-version
+npm install -g ionic-version
 # or
-$ yarn global add ionic-version
+yarn global add ionic-version
 ```
 
 ### Example usage
@@ -72,7 +70,7 @@ ionic-version
 
 You can apply these options to the "version" or "postversion" script too. If for example you want to commit the changes made by ionic-version yourself, add the "--never-amend" option:
 
-```js
+```javascript
 {
 	// ...
 	"scripts": {
@@ -154,3 +152,4 @@ Custom type definition for Promises
 
 - [npm-version](https://docs.npmjs.com/cli/version)
 - [Semantic Versioning (semver)](http://semver.org/)
+- [react-native-version](https://github.com/stovmascript/react-native-version)

@@ -34,5 +34,18 @@
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
-  }
+  },
+  "keywords": [
+    "build",
+    "bump",
+    "CFBundleShortVersionString",
+    "gradle",
+    "info",
+    "ionic",
+    "npm-version",
+    "plist",
+    "semver",
+    "version",
+    "versionName"
+  ]
 }
