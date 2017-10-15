@@ -3,12 +3,25 @@ import chalk from "chalk";
 import child from "child_process";
 import path from "path";
 
+/**
+ * Custom type definition for Promises
+ * @typedef Promise
+ * @property {*} result See the implementing function for the resolve type and description
+ * @property {Error} result Rejection error object
+ */
+
 function log(msg, silent) {
 	if (!silent) {
 		console.log("[IV]", chalk[msg.style || "reset"](msg.text));
 	}
 }
 
+/**
+ * Versions your app
+ * @param {Object} program commander/CLI-style options, camelCased
+ * @param {string} projectPath Path to your Ionic project
+ * @return {Promise<string|Error>} A promise which resolves with the last commit hash
+ */
 export function version(program, projectPath) {
 	const programOpts = Object.assign({}, program || {});
 

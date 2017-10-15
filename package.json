@@ -12,7 +12,8 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
-    "cordova-config": "^0.7.0"
+    "cordova-config": "^0.7.0",
+    "jsdoc-to-markdown": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
@@ -28,7 +29,8 @@
   "scripts": {
     "precommit": "lint-staged",
     "build": "rimraf lib && babel src -d lib",
-    "test": "yarn build && ava"
+    "test": "yarn build && ava",
+    "docs": "jsdoc2md -d 4 src/index.js"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
