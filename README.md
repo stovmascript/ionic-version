@@ -7,9 +7,9 @@ Seamlessly shadows the behaviour of [`npm version`](https://docs.npmjs.com/cli/v
 ### Setup
 
 ```bash
-npm install ionic-version --save
+npm install ionic-version --save-dev
 # or
-yarn add ionic-version
+yarn add ionic-version --dev
 ```
 
 Hook into the "version" or "postversion" npm script in your app's package.json:

@@ -12,8 +12,7 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
-    "cordova-config": "^0.7.0",
-    "jsdoc-to-markdown": "^3.0.0"
+    "cordova-config": "^0.7.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
@@ -21,6 +20,7 @@
     "babel-preset-env": "^1.6.0",
     "fs-extra": "^4.0.2",
     "husky": "^0.14.3",
+    "jsdoc-to-markdown": "^3.0.0",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.0",
     "rimraf": "^2.6.2",
