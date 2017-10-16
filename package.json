@@ -30,7 +30,8 @@
     "precommit": "lint-staged",
     "build": "rimraf lib && babel src -d lib",
     "test": "yarn build && ava",
-    "docs": "jsdoc2md -d 4 src/index.js"
+    "docs": "jsdoc2md -d 4 src/index.js",
+    "prepublish": "yarn build"
   },
   "lint-staged": {
     "*.{js,json}": ["prettier --write", "git add"]
