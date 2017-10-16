@@ -1,6 +1,6 @@
 {
   "name": "ionic-version",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Version your Ionic app in a `npm version` fashion.",
   "repository": "https://github.com/stovmascript/ionic-version.git",
   "author": "Martin Stovicek <martin.stovicek+oss@gmail.com>",
