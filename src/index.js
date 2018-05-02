@@ -2,6 +2,7 @@ import CordovaConfig from "cordova-config";
 import chalk from "chalk";
 import child from "child_process";
 import path from "path";
+import resolveFrom from "resolve-from";
 
 /**
  * Custom type definition for Promises
@@ -31,20 +32,16 @@ export function version(program, projectPath) {
 	);
 
 	const appPkgJSONPath = path.join(projPath, "package.json");
-	const MISSING_IONIC_DEP = "MISSING_IONIC_DEP";
 	let appPkg;
 
 	try {
+		resolveFrom(projPath, "@ionic/app-scripts");
 		appPkg = require(appPkgJSONPath);
-
-		if (!appPkg.devDependencies["@ionic/app-scripts"]) {
-			throw new Error(MISSING_IONIC_DEP);
-		}
 	} catch (err) {
-		if (err.message === MISSING_IONIC_DEP) {
+		if (err.message === "Cannot find module '@ionic/app-scripts'") {
 			log({
 				style: "red",
-				text: `Is this the right folder? Ionic (@ionic/app-scripts) isn't listed in devDependencies of ${appPkgJSONPath}.`
+				text: `Is this the right folder? ${err.message} in ${projPath}`
 			});
 		} else {
 			log({
