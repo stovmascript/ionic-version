@@ -1,13 +1,20 @@
 {
   "name": "ionic-version",
-  "version": "1.0.1",
   "description": "Version your Ionic app in a `npm version` fashion.",
-  "repository": "https://github.com/stovmascript/ionic-version.git",
-  "author": "Martin Stovicek <martin.stovicek+oss@gmail.com>",
   "license": "MIT",
+  "author": "Martin Stovicek <martin.stovicek+oss@gmail.com>",
+  "repository": "https://github.com/stovmascript/ionic-version.git",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "bin": {
     "ionic-version": "lib/cli.js"
+  },
+  "scripts": {
+    "build": "rimraf lib && babel src -d lib",
+    "precommit": "lint-staged",
+    "docs": "./docs.sh",
+    "prepublish": "yarn build",
+    "test": "yarn build && ava"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -15,31 +22,27 @@
     "cordova-config": "^0.7.0"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "fs-extra": "^4.0.2",
     "husky": "^0.14.3",
+    "import-sort-cli": "^4.2.0",
+    "import-sort-parser-babylon": "^4.2.0",
+    "import-sort-style-eslint": "^4.2.0",
+    "injectmd": "^1.0.0",
     "jsdoc-to-markdown": "^3.0.0",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.0",
+    "prettier-package-json": "^1.6.0",
     "rimraf": "^2.6.2",
+    "sort-json": "^1.6.1",
     "temp": "^0.8.3"
   },
-  "scripts": {
-    "precommit": "lint-staged",
-    "build": "rimraf lib && babel src -d lib",
-    "test": "yarn build && ava",
-    "docs": "jsdoc2md -d 4 src/index.js",
-    "prepublish": "yarn build"
-  },
-  "lint-staged": {
-    "*.{js,json}": ["prettier --write", "git add"]
-  },
   "keywords": [
+    "CFBundleShortVersionString",
     "build",
     "bump",
-    "CFBundleShortVersionString",
     "gradle",
     "info",
     "ionic",
@@ -48,5 +51,11 @@
     "semver",
     "version",
     "versionName"
-  ]
+  ],
+  "lint-staged": {
+    "*.json": ["sort-json", "git add"],
+    "*.{js,json,md}": ["prettier --write", "git add"],
+    "*.{js}": ["import-sort --write", "git add"],
+    "package.json": ["prettier-package-json --write", "git add"]
+  }
 }

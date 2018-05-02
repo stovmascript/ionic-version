@@ -59,14 +59,16 @@ ionic-version
 
 ## Options
 
-```
--V, --version      output the version number
--a, --amend        Amend the previous commit. Also updates the latest Git tag to point to the amended commit. This is done automatically when ionic-version is run from the "version" or "postversion" npm script. Use "--never-amend" if you never want to amend.
---skip-tag         For use with "--amend", if you don't want to update Git tags.
--A, --never-amend  Never amend the previous commit.
--q, --quiet        Be quiet, only report errors.
--h, --help         output usage information
-```
+<!-- START cli -->
+
+    -V, --version      output the version number
+    -a, --amend        Amend the previous commit. Also updates the latest Git tag to point to the amended commit. This is done automatically when ionic-version is run from the "version" or "postversion" npm script. Use "--never-amend" if you never want to amend.
+    --skip-tag         For use with "--amend", if you don't want to update Git tags.
+    -A, --never-amend  Never amend the previous commit.
+    -q, --quiet        Be quiet, only report errors.
+    -h, --help         output usage information
+
+<!-- END cli -->
 
 You can apply these options to the "version" or "postversion" script too. If for example you want to commit the changes made by ionic-version yourself, add the "--never-amend" option:
 
@@ -83,11 +85,11 @@ You can apply these options to the "version" or "postversion" script too. If for
 ## API
 
 ```javascript
-import version from 'ionic-version';
+import version from "ionic-version";
 
 async function doSomething() {
 	const versionResult = await version({
-		amend: true,
+		amend: true
 		// ...
 	});
 }
@@ -95,16 +97,18 @@ async function doSomething() {
 // or
 
 version({
-	amend: true,
+	amend: true
 	// ...
 })
-.then(commitHash => {
-	console.log(commitHash);
-})
-.catch(err => {
-	console.error(err);
-});
+	.then(commitHash => {
+		console.log(commitHash);
+	})
+	.catch(err => {
+		console.error(err);
+	});
 ```
+
+<!-- START api -->
 
 ### Functions
 
@@ -124,32 +128,36 @@ version({
 
 <a name="version"></a>
 
-#### version(program, projectPath) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+### version(program, projectPath) ⇒ <code>Promise.&lt;(string\|Error)&gt;</code>
+
 Versions your app
 
 **Kind**: global function  
-**Returns**: <code>Promise.&lt;(string\|Error)&gt;</code> - A promise which resolves with the last commit hash  
+**Returns**: <code>Promise.&lt;(string\|Error)&gt;</code> - A promise which resolves with the last commit hash
 
-| Param | Type | Description |
-| --- | --- | --- |
-| program | <code>Object</code> | commander/CLI-style options, camelCased |
-| projectPath | <code>string</code> | Path to your Ionic project |
+| Param       | Type                | Description                             |
+| ----------- | ------------------- | --------------------------------------- |
+| program     | <code>Object</code> | commander/CLI-style options, camelCased |
+| projectPath | <code>string</code> | Path to your Ionic project              |
 
 <a name="Promise"></a>
 
-#### Promise
+### Promise
+
 Custom type definition for Promises
 
 **Kind**: global typedef  
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| result | <code>\*</code> | See the implementing function for the resolve type and description |
-| result | <code>Error</code> | Rejection error object |
+| Name   | Type               | Description                                                        |
+| ------ | ------------------ | ------------------------------------------------------------------ |
+| result | <code>\*</code>    | See the implementing function for the resolve type and description |
+| result | <code>Error</code> | Rejection error object                                             |
+
+<!-- END api -->
 
 ## See also
 
-- [npm-version](https://docs.npmjs.com/cli/version)
-- [Semantic Versioning (semver)](http://semver.org/)
-- [react-native-version](https://github.com/stovmascript/react-native-version)
+* [npm-version](https://docs.npmjs.com/cli/version)
+* [Semantic Versioning (semver)](http://semver.org/)
+* [react-native-version](https://github.com/stovmascript/react-native-version)
