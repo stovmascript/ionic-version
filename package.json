@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "Martin Stovicek <martin.stovicek+oss@gmail.com>",
   "repository": "https://github.com/stovmascript/ionic-version.git",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "bin": {
     "ionic-version": "lib/cli.js"
