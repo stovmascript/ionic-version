@@ -29,7 +29,7 @@
     "fs-extra": "8.1.0",
     "husky": "0.14.3",
     "import-sort-cli": "4.2.0",
-    "import-sort-parser-babylon": "4.2.0",
+    "import-sort-parser-babylon": "6.0.0",
     "import-sort-style-eslint": "4.2.0",
     "injectmd": "1.0.0",
     "jsdoc-to-markdown": "3.0.4",
