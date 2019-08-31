@@ -34,7 +34,7 @@
     "injectmd": "1.0.0",
     "jsdoc-to-markdown": "3.0.4",
     "lint-staged": "7.0.5",
-    "prettier": "1.12.1",
+    "prettier": "1.18.2",
     "prettier-package-json": "1.6.0",
     "rimraf": "2.6.2",
     "sort-json": "1.6.1",
