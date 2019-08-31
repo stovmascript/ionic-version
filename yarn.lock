@@ -5040,11 +5040,13 @@ sort-array@^2.0.0:
     object-get "^2.1.0"
     typical "^2.6.0"
 
-sort-json@1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/sort-json/-/sort-json-1.6.1.tgz#b30bd859d38458ced4c324fe8340914b5c31e074"
+sort-json@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/sort-json/-/sort-json-2.0.0.tgz#a7030d8875adbd4a5ea39a000567ed94c1aa3c50"
   dependencies:
-    lodash "^4.17.4"
+    detect-indent "^5.0.0"
+    detect-newline "^2.1.0"
+    minimist "^1.2.0"
 
 sort-keys@^2.0.0:
   version "2.0.0"
