@@ -20,7 +20,7 @@
     "chalk": "^2.1.0",
     "commander": "^3.0.0",
     "cordova-config": "^0.7.0",
-    "resolve-from": "^4.0.0"
+    "resolve-from": "^5.0.0"
   },
   "devDependencies": {
     "ava": "0.25.0",
