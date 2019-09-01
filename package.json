@@ -32,7 +32,7 @@
     "import-sort-parser-babylon": "6.0.0",
     "import-sort-style-eslint": "6.0.0",
     "injectmd": "1.0.0",
-    "jsdoc-to-markdown": "3.0.4",
+    "jsdoc-to-markdown": "5.0.1",
     "lint-staged": "7.0.5",
     "prettier": "1.18.2",
     "prettier-package-json": "2.1.0",
