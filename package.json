@@ -27,7 +27,7 @@
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.7.0",
     "fs-extra": "8.1.0",
-    "husky": "3.0.9",
+    "husky": "3.1.0",
     "import-sort-cli": "6.0.0",
     "import-sort-parser-babylon": "6.0.0",
     "import-sort-style-eslint": "6.0.0",
