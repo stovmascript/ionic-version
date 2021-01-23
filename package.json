@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "chalk": "^3.0.0",
-    "commander": "^5.0.0",
+    "commander": "^7.0.0",
     "cordova-config": "^0.7.0",
     "resolve-from": "^5.0.0"
   },
