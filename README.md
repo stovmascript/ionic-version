@@ -1,4 +1,11 @@
-# ionic-version [![Build Status](https://travis-ci.org/stovmascript/ionic-version.svg?branch=master)](https://travis-ci.org/stovmascript/ionic-version)
+# ionic-version
+
+> ⚠️ **This package is deprecated and no longer maintained.**
+>
+> It requires `@ionic/app-scripts` (Ionic 3), so it doesn't work with current Ionic projects. Use the framework tooling instead:
+>
+> - Capacitor: [Trapeze](https://trapeze.dev), see [Automated Capacitor Project Configuration](https://capacitorjs.com/docs/guides/automated-configuration).
+> - Cordova: set `version` in `config.xml`. Cordova derives the Android `versionCode` and iOS `CFBundleVersion` from it, see [Config.xml API](https://cordova.apache.org/docs/en/latest/config_ref/).
 
 Seamlessly shadows the behaviour of [`npm version`](https://docs.npmjs.com/cli/version).
 
@@ -158,6 +165,6 @@ Custom type definition for Promises
 
 ## See also
 
-* [npm-version](https://docs.npmjs.com/cli/version)
-* [Semantic Versioning (semver)](http://semver.org/)
-* [react-native-version](https://github.com/stovmascript/react-native-version)
+- [npm-version](https://docs.npmjs.com/cli/version)
+- [Semantic Versioning (semver)](http://semver.org/)
+- [react-native-version](https://github.com/stovmascript/react-native-version)
